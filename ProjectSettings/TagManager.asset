@@ -3,16 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Meteor
+  - Missile
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Meteor
   - Water
   - UI
-  - 
-  - 
+  - Follower
+  - Enemy
   - 
   - 
   - 
