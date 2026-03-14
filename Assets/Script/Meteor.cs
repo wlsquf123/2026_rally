@@ -48,7 +48,7 @@ public class Meteor : MonoBehaviour
         }*/
         if (other.CompareTag("Enemy"))
         {
-            enemy.Damage(5f);
+            enemy.Damage(1f);
             Destroy(gameObject);
         }
     }

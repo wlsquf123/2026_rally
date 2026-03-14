@@ -1,53 +1,131 @@
 using UnityEngine;
 using UnityEngine.UI;
+
+public enum EnemyType
+{
+    Null = 0,
+    Scout,
+    Fighter,
+    HeavyCruiser,
+    Interceptor,  
+    Bomber,
+    Boss1
+}
+
 public class Enemy : MonoBehaviour
 {
-    public int enemyType;
+    public EnemyType type;
     public Image hpBar;
+    public GameObject[] missilePrefab;
+    Transform player;
 
-    float[] speeds = { 5f, 2f, 0.8f, 1.5f, 0.5f };
-    float[] rotSpeeds = { 2f, 3f, 1f, 2f, 0.7f };
-    float[] attackTimes = { 5f, 4f, 3f, 2f, 1f };
-    float[] hps = { 20, 40, 80, 15, 60 };
-
-    float speed;
-    float rotSpeed;
-    float attackTime;
-    float hp;
-    float maxHp;
+    public float speed;
+    public float rotSpeed;
+    public float attackTime;
+    public float hp;
+    public float maxHp;
 
     float timer = 0f;
-
-    Transform player;
-    public GameObject missilePrefab;
+    float timer1 = 0f;
+    float timer2 = 0f;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
-
-        speed = speeds[enemyType];
-        rotSpeed = rotSpeeds[enemyType];
-        attackTime = attackTimes[enemyType];
-        maxHp = hps[enemyType];
         hp = maxHp;
     }
 
     void Update()
     {
         Vector3 dir = player.position - transform.position;
-
         Quaternion target = Quaternion.LookRotation(dir);
 
         transform.rotation = Quaternion.Lerp(transform.rotation, target, rotSpeed * Time.deltaTime);
-
         transform.Translate(0, 0, speed * Time.deltaTime);
 
         timer += Time.deltaTime;
+        timer1 += Time.deltaTime;
+        timer2 += Time.deltaTime;
+        Attack();
+    }
 
-        if (timer >= attackTime)
+    void Attack()
+    {
+        // ±âº» Àû
+        switch (type)
         {
-            Instantiate(missilePrefab, transform.position + transform.forward * 10, transform.rotation);
-            timer = 0f;
+            case EnemyType.Scout:
+                if (timer >= attackTime)
+                {
+                    Instantiate(missilePrefab[0], transform.position + transform.forward * 10, transform.rotation);
+                    timer = 0f;
+                }
+                break;
+
+            case EnemyType.Fighter:
+                if (timer1 >= attackTime)
+                {
+                    Instantiate(missilePrefab[0], transform.position + transform.forward * 10, transform.rotation);
+                    timer1 = 0f;
+                }
+                if (timer >= attackTime * 1.1f)
+                {
+                    Instantiate(missilePrefab[0], transform.position + transform.forward * 10, transform.rotation);
+                    timer = 0f;
+                }
+                if (timer2 >= attackTime * 1.2f)
+                {
+                    Instantiate(missilePrefab[0], transform.position + transform.forward * 10, transform.rotation);
+                    timer = 0f;
+                    timer2 = 0f;
+                    timer1 = 0f;
+                }
+                break;
+
+            case EnemyType.HeavyCruiser:
+                if (timer >= attackTime)
+                {
+                    Instantiate(missilePrefab[0], transform.position + transform.forward * 10, transform.rotation);
+                    timer = 0f;
+                }
+                break;
+
+            case EnemyType.Interceptor:
+                if (timer >= attackTime)
+                {
+                    Instantiate(missilePrefab[0], transform.position + transform.forward * 5, transform.rotation);
+                    timer = 0f;
+                }
+                break;
+
+            case EnemyType.Bomber:
+                if (timer >= attackTime)
+                {
+                    Instantiate(missilePrefab[0], transform.position + transform.forward * 5, transform.rotation);
+                    timer = 0f;
+                }        
+                break;
+
+            case EnemyType.Boss1:
+                if (timer >= attackTime)
+                {
+                    Instantiate(missilePrefab[0], transform.position + transform.forward * 10, transform.rotation);
+                    timer = 0f;
+                }
+                if (timer1 >= attackTime * 1.1f)
+                {
+                    Instantiate(missilePrefab[1], transform.position + transform.forward * 10, transform.rotation);
+                    timer1 = 0f;
+                }
+                if (timer2 >= attackTime * 1.2f)
+                {
+                    Instantiate(missilePrefab[2], transform.position + transform.forward * 10, transform.rotation);
+                    timer = 0f;
+                    timer2 = 0f;
+                    timer1 = 0f;
+                }
+                break;
+
         }
     }
 
@@ -55,6 +133,7 @@ public class Enemy : MonoBehaviour
     {
         hp -= x;
         hpBar.fillAmount = hp / maxHp;
+
         if (hp < 0)
         {
             Destroy(gameObject);

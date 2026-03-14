@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-    float speed = 10f;
+    public float speed;
 
     Transform player;
     bool isHit = false;
+
+    float timer;
+    public float targetTime;
 
     void Start()
     {
@@ -14,9 +17,14 @@ public class Missile : MonoBehaviour
 
     void Update()
     {
-        transform.LookAt(player);
+        timer += Time.deltaTime;
+
+        if (timer <= targetTime)
+        {
+            transform.LookAt(player);
+        }
         transform.Translate(0, 0, speed * Time.deltaTime);
-        transform.Rotate(90, 0, 0);
+        //transform.Rotate(90, 0, 0);
     }
 
     private void OnTriggerEnter(Collider other)
