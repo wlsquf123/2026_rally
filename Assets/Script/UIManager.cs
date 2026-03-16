@@ -7,7 +7,8 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    public Image PlayerHpImage;
+    public Image PlayerHpImage; // 체력바 이미지
+    public Text PlayerMoneyText;
 
     Quaternion initialRotation;
     private void Awake()
@@ -24,6 +25,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         PlayerHpUI();
+        PlayerMoneyTextUI();
     }
 
     public void PlayerHpUI()
@@ -31,4 +33,8 @@ public class UIManager : MonoBehaviour
         PlayerHpImage.fillAmount = GameManager.Instance.PlayerHp / GameManager.Instance.PlayerMaxHp;
     }
 
+    public void PlayerMoneyTextUI()
+    {
+        PlayerMoneyText.text = GameManager.Instance.money.ToString();
+    }
 }

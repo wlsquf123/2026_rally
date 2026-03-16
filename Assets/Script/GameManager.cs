@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public float PlayerMaxHp = 100f; // 플레이어 최대체력
     public float PlayerHp; // 플레이어 체력
+    public float money = 0f; // 플레이어 머뉘
 
 
     private void Awake()
@@ -38,5 +39,10 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0f;
         }
+    }
+
+    public void PlayerMoney(float m)
+    {
+        money += m;
     }
 }

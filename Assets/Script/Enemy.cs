@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     public float attackTime;
     public float hp;
     public float maxHp;
+    public float Reward = 0f;
 
     float timer = 0f;
     float timer1 = 0f;
@@ -134,9 +135,10 @@ public class Enemy : MonoBehaviour
         hp -= x;
         hpBar.fillAmount = hp / maxHp;
 
-        if (hp < 0)
+        if (hp <= 0)
         {
             Destroy(gameObject);
+            GameManager.Instance.PlayerMoney(Reward);
         }
     }
 }

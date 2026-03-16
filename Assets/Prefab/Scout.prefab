@@ -397,6 +397,7 @@ MonoBehaviour:
   attackTime: 5
   hp: 0
   maxHp: 20
+  Reward: 10
 --- !u!65 &3082858241946262849
 BoxCollider:
   m_ObjectHideFlags: 0

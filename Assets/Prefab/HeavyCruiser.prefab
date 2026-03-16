@@ -106,6 +106,7 @@ MonoBehaviour:
   attackTime: 10
   hp: 0
   maxHp: 80
+  Reward: 20
 --- !u!1 &3234033748908903307
 GameObject:
   m_ObjectHideFlags: 0
