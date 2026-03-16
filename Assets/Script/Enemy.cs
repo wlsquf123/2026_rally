@@ -9,7 +9,9 @@ public enum EnemyType
     HeavyCruiser,
     Interceptor,  
     Bomber,
-    Boss1
+    Boss1,
+    Boss2,
+    Boss3
 }
 
 public class Enemy : MonoBehaviour
@@ -117,13 +119,16 @@ public class Enemy : MonoBehaviour
                 {
                     Instantiate(missilePrefab[1], transform.position + transform.forward * 10, transform.rotation);
                     timer1 = 0f;
+                    timer = 0f;
                 }
                 if (timer2 >= attackTime * 1.2f)
                 {
                     Instantiate(missilePrefab[2], transform.position + transform.forward * 10, transform.rotation);
                     timer = 0f;
-                    timer2 = 0f;
                     timer1 = 0f;
+                    timer2 = 0f;
+
+
                 }
                 break;
 

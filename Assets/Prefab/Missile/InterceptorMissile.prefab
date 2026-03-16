@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: -4379189365784211224, guid: 378f928659987f748bc6f9e8c33366a5, type: 3}
     - target: {fileID: 919132149155446097, guid: 66f2112b75d4fe24ba51804c34ea2894, type: 3}
       propertyPath: m_Name
-      value: Interceptor
+      value: InterceptorMissile
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 66f2112b75d4fe24ba51804c34ea2894, type: 3}
       propertyPath: m_Layer
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dcda68edf19ba34e96d6305fc1c485e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 100
   targetTime: 0
 --- !u!65 &6917332506326844554
 BoxCollider:

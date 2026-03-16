@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     {
         if (PlayerHp <= 0)
         {
+            UIManager.Instance.GAMEOVERUI();
             Time.timeScale = 0f;
         }
     }
@@ -44,5 +45,14 @@ public class GameManager : MonoBehaviour
     public void PlayerMoney(float m)
     {
         money += m;
+    }
+
+    public void Resets()
+    {
+        PlayerHp = PlayerMaxHp;
+        money = 0f;
+        UIManager.Instance.GameOverObj.SetActive(false);
+        
+
     }
 }

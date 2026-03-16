@@ -35,7 +35,6 @@ public class MovePlayer : MonoBehaviour
         }
 
         rotVelocity = Mathf.Lerp(rotVelocity, rotTarget, 5f * Time.deltaTime);
-
         transform.Translate(0, 0, velocity * Time.deltaTime);
         transform.Rotate(0, rotVelocity * Time.deltaTime, 0);
     }

@@ -9,8 +9,10 @@ public class UIManager : MonoBehaviour
 
     public Image PlayerHpImage; // 체력바 이미지
     public Text PlayerMoneyText;
+    public Text PlayerMoneyTextStore;
 
-    Quaternion initialRotation;
+    public GameObject GameOverObj;
+
     private void Awake()
     {
         if (Instance == null)
@@ -22,6 +24,7 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     void Update()
     {
         PlayerHpUI();
@@ -32,9 +35,15 @@ public class UIManager : MonoBehaviour
     {
         PlayerHpImage.fillAmount = GameManager.Instance.PlayerHp / GameManager.Instance.PlayerMaxHp;
     }
-
+    
     public void PlayerMoneyTextUI()
     {
         PlayerMoneyText.text = GameManager.Instance.money.ToString();
+        PlayerMoneyTextStore.text = GameManager.Instance.money.ToString();
+    }
+
+    public void GAMEOVERUI()
+    {
+        GameOverObj.SetActive(true);
     }
 }

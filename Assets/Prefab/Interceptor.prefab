@@ -472,11 +472,11 @@ MonoBehaviour:
   missilePrefab:
   - {fileID: 7090288227873786759, guid: 7a48de576343cd74585f59e366ed91ff, type: 3}
   speed: 1
-  rotSpeed: 2
-  attackTime: 3
+  rotSpeed: 5
+  attackTime: 1
   hp: 0
   maxHp: 15
-  Reward: 5
+  Reward: 20
 --- !u!65 &6253520772196581245
 BoxCollider:
   m_ObjectHideFlags: 0
