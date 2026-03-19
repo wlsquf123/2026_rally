@@ -473,7 +473,7 @@ MonoBehaviour:
   - {fileID: 7090288227873786759, guid: 7a48de576343cd74585f59e366ed91ff, type: 3}
   speed: 1
   rotSpeed: 5
-  attackTime: 1
+  attackTime: 3
   hp: 0
   maxHp: 15
   Reward: 20

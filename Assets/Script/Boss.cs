@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    
     private void OnTriggerEnter(Collider other)
     {
         Enemy Enemy = GetComponent<Enemy>();

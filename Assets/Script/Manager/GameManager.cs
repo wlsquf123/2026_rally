@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     public float PlayerHp; // 플레이어 체력
     public float money = 0f; // 플레이어 머뉘
 
-
+    public int KillCount = 0;
+    public int targetKillCount = 3; // 기본값
     private void Awake()
     {
         if (Instance == null)
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         GAMEOVER();
+        CheatKey();
     }
 
     public void GAMEOVER()
@@ -47,12 +49,29 @@ public class GameManager : MonoBehaviour
         money += m;
     }
 
-    public void Resets()
+    public void KillCountReset(int count) // 스테이지가 시작될 때 호출해서 목표치를 설정할 함수
     {
-        PlayerHp = PlayerMaxHp;
-        money = 0f;
-        UIManager.Instance.GameOverObj.SetActive(false);
-        
+        targetKillCount = count;
+        KillCount = 0; // 카운트 초기화는 덤!
+    }
 
+    public void CheatKey()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            // 디버그모드
+        }
+
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            // 무적
+        }
+
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            // 돈 추가
+            money += 10;
+        }
+        
     }
 }

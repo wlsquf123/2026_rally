@@ -92,6 +92,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 66f2112b75d4fe24ba51804c34ea2894, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 66f2112b75d4fe24ba51804c34ea2894, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 66f2112b75d4fe24ba51804c34ea2894, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 66f2112b75d4fe24ba51804c34ea2894, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.215253
       objectReference: {fileID: 0}
@@ -141,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: -6193810778218994843, guid: 118d5cd0e90bbb54aaef5ff8649c8aa7, type: 3}
     - target: {fileID: 919132149155446097, guid: 66f2112b75d4fe24ba51804c34ea2894, type: 3}
       propertyPath: m_Name
-      value: Scout 1
+      value: BomberMissile
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 66f2112b75d4fe24ba51804c34ea2894, type: 3}
       propertyPath: m_Layer
@@ -169,6 +181,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 66f2112b75d4fe24ba51804c34ea2894, type: 3}
       insertIndex: -1
       addedObject: {fileID: -3371185921925049320}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 66f2112b75d4fe24ba51804c34ea2894, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5631213375854074694}
   m_SourcePrefab: {fileID: 100100000, guid: 66f2112b75d4fe24ba51804c34ea2894, type: 3}
 --- !u!1 &7090288227873786759 stripped
 GameObject:
@@ -187,8 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dcda68edf19ba34e96d6305fc1c485e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  targetTime: 6
+  speed: 20
+  targetTime: 0
 --- !u!65 &6917332506326844554
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -208,8 +223,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.82165, y: 3.3087149, z: 3.6400642}
-  m_Center: {x: -0.038954973, y: 0.3686576, z: 3.010126}
+  m_Size: {x: 3.82165, y: 3.3087149, z: 1.6409016}
+  m_Center: {x: -0.038954973, y: 0.3686576, z: 2.3452387}
 --- !u!54 &-3371185921925049320
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -237,6 +252,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &5631213375854074694
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7090288227873786759}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0f6c1565e3cf9c4ca13932493cfc88c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &7579016385611518269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 66f2112b75d4fe24ba51804c34ea2894, type: 3}

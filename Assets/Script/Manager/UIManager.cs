@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public Text PlayerMoneyTextStore;
 
     public GameObject GameOverObj;
+    public GameObject StageClearObj;
 
     private void Awake()
     {
@@ -45,5 +46,11 @@ public class UIManager : MonoBehaviour
     public void GAMEOVERUI()
     {
         GameOverObj.SetActive(true);
+    }
+
+    public void StageClearUI()
+    {
+        StageClearObj.SetActive(true);
+        Time.timeScale = 0f; // 게임 일시정지
     }
 }

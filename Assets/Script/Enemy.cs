@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
     float timer1 = 0f;
     float timer2 = 0f;
 
+    public bool Hit = false;
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -50,6 +51,13 @@ public class Enemy : MonoBehaviour
         timer1 += Time.deltaTime;
         timer2 += Time.deltaTime;
         Attack();
+
+        if (Input.GetKeyDown(KeyCode.F3) && Hit == false)
+        {
+            Hit = true;
+            Damage(1000);
+            // 碍力 利 荤噶(老雀己
+        }
     }
 
     void Attack()
@@ -104,7 +112,7 @@ public class Enemy : MonoBehaviour
             case EnemyType.Bomber:
                 if (timer >= attackTime)
                 {
-                    Instantiate(missilePrefab[0], transform.position + transform.forward * 5, transform.rotation);
+                    Instantiate(missilePrefab[0], transform.position + transform.forward * 20, transform.rotation);
                     timer = 0f;
                 }        
                 break;
@@ -144,6 +152,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             GameManager.Instance.PlayerMoney(Reward);
+            GameManager.Instance.KillCount++;
         }
     }
 }

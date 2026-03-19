@@ -254,7 +254,7 @@ MonoBehaviour:
   hpBar: {fileID: 8836453305863852819}
   missilePrefab:
   - {fileID: 7090288227873786759, guid: 4686596e88cbcd64b9c27b10c42588c5, type: 3}
-  speed: 2
+  speed: 0
   rotSpeed: 3
   attackTime: 7
   hp: 0

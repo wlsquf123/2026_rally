@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 8483925241572998100}
   - component: {fileID: 2841379796237134936}
   m_Layer: 7
-  m_Name: Spaceship13_2
+  m_Name: Bomber
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,9 +472,9 @@ MonoBehaviour:
   hpBar: {fileID: 3667224915360058544}
   missilePrefab:
   - {fileID: 7090288227873786759, guid: aff2f53a173e402409555afcd0f98b3c, type: 3}
-  speed: 5
-  rotSpeed: 2
-  attackTime: 7
+  speed: 0
+  rotSpeed: 3
+  attackTime: 5
   hp: 0
   maxHp: 60
   Reward: 30

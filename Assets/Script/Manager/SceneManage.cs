@@ -5,20 +5,40 @@ using UnityEngine.SceneManagement;
 
 public class SceneManage : MonoBehaviour
 {
-    public void SceneButton(string x)
-    {
-        SceneManager.LoadScene(x);
-    }
-
-    public void StartScene()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("SampleScene");
-    }
 
     public void MainScene()
-    { 
-        GameManager.Instance.Resets();
+    {
+        UIManager.Instance.GameOverObj.SetActive(false);
+        GameManager.Instance.PlayerHp = GameManager.Instance.PlayerMaxHp;
+        GameManager.Instance.money = 0f;
+        GameManager.Instance.KillCount = 0;
         SceneManager.LoadScene("Main");
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("Stage1");
+        UIManager.Instance.GameOverObj.SetActive(false);
+        GameManager.Instance.PlayerHp = GameManager.Instance.PlayerMaxHp;
+        Time.timeScale = 1f;
+        GameManager.Instance.KillCountReset(3);
     }
+
+    public void Stage2Scene()
+    {
+        SceneManager.LoadScene("Stage2");
+        UIManager.Instance.GameOverObj.SetActive(false);
+        GameManager.Instance.PlayerHp = GameManager.Instance.PlayerMaxHp;
+        Time.timeScale = 1f;
+        GameManager.Instance.KillCountReset(4);
+    }
+
+    public void Stage3Stage()
+    {
+        SceneManager.LoadScene("Stage3");
+        UIManager.Instance.GameOverObj.SetActive(false);
+        GameManager.Instance.PlayerHp = GameManager.Instance.PlayerMaxHp;
+        Time.timeScale = 1f;
+        GameManager.Instance.KillCountReset(5);
+    }
+}

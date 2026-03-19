@@ -24,7 +24,6 @@ public class Missile : MonoBehaviour
             transform.LookAt(player);
         }
         transform.Translate(0, 0, speed * Time.deltaTime);
-        //transform.Rotate(90, 0, 0);
     }
 
     private void OnTriggerEnter(Collider other)
