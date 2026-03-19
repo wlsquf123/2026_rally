@@ -32,7 +32,6 @@ public class Enemy : MonoBehaviour
     float timer1 = 0f;
     float timer2 = 0f;
 
-    public bool Hit = false;
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -52,11 +51,9 @@ public class Enemy : MonoBehaviour
         timer2 += Time.deltaTime;
         Attack();
 
-        if (Input.GetKeyDown(KeyCode.F3) && Hit == false)
+        if (Input.GetKeyDown(KeyCode.F3))
         {
-            Hit = true;
-            Damage(1000);
-            // 碍力 利 荤噶(老雀己
+            Damage(9999);
         }
     }
 

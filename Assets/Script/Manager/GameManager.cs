@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     public int KillCount = 0;
     public int targetKillCount = 3; // 기본값
+
+    public bool Hit = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -67,11 +70,12 @@ public class GameManager : MonoBehaviour
             // 무적
         }
 
-        if (Input.GetKeyDown(KeyCode.F4))
+        if (Input.GetKeyDown(KeyCode.F4) && !Hit)
         {
             // 돈 추가
-            money += 10;
+            money += 10000;
+            Hit = true;
         }
-        
+
     }
 }
