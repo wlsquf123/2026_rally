@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 1940831}
   - component: {fileID: 1940830}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: StartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -485,39 +485,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4953863505558146080, guid: 815fa6081d4e0af4594d5c83bddf4dae, type: 3}
+    - {fileID: 9102441618263742057, guid: 815fa6081d4e0af4594d5c83bddf4dae, type: 3}
+    - {fileID: 4239469795756167454, guid: 815fa6081d4e0af4594d5c83bddf4dae, type: 3}
+    - {fileID: 2325765944385988978, guid: 815fa6081d4e0af4594d5c83bddf4dae, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6242001233191064516, guid: 815fa6081d4e0af4594d5c83bddf4dae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 106283136}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 815fa6081d4e0af4594d5c83bddf4dae, type: 3}
---- !u!1 &106283134 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6242001233191064516, guid: 815fa6081d4e0af4594d5c83bddf4dae, type: 3}
-  m_PrefabInstance: {fileID: 106283133}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &106283136
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106283134}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 10.363375, y: 2.1306334, z: 7.792721}
-  m_Center: {x: 0, y: 0, z: -1.3459644}
 --- !u!1 &160577347
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +746,7 @@ GameObject:
   - component: {fileID: 349145845}
   - component: {fileID: 349145844}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: RankingButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1372,6 +1346,62 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9269ea0b3480d424ea90072161e59db8, type: 3}
+--- !u!1 &1136100119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1136100121}
+  - component: {fileID: 1136100120}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1136100120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136100119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3835ff429116a8743838f2d733897b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerMaxHp: 100
+  PlayerHp: 0
+  money: 0
+  KillCount: 0
+  targetKillCount: 3
+  Hit: 0
+  HomingModule: 0
+  TimeStopper: 0
+  Reflector: 0
+  BlackHole: 0
+  SlowField: 0
+  BlackHolePr: {fileID: 5325295002648738927, guid: 2a0c01c894ea465409ea9b0c06b98bc4, type: 3}
+--- !u!4 &1136100121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136100119}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.464447, y: -131.05927, z: 158.65193}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1298137708 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8280039493999207875, guid: 9269ea0b3480d424ea90072161e59db8, type: 3}
@@ -1628,7 +1658,7 @@ GameObject:
   - component: {fileID: 1571460491}
   - component: {fileID: 1571460490}
   m_Layer: 5
-  m_Name: Button (Legacy) (2)
+  m_Name: LoadButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1762,7 +1792,7 @@ GameObject:
   - component: {fileID: 1768593216}
   - component: {fileID: 1768593217}
   m_Layer: 0
-  m_Name: Group
+  m_Name: GroupButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1830,7 +1860,7 @@ GameObject:
   - component: {fileID: 1798291728}
   - component: {fileID: 1798291727}
   m_Layer: 5
-  m_Name: Button (Legacy) (3)
+  m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2046,7 +2076,7 @@ GameObject:
   - component: {fileID: 1955006290}
   - component: {fileID: 1955006289}
   m_Layer: 5
-  m_Name: Button (Legacy) (4)
+  m_Name: SettingButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2241,3 +2271,4 @@ SceneRoots:
   - {fileID: 1497987433}
   - {fileID: 719440418}
   - {fileID: 1308182537}
+  - {fileID: 1136100121}

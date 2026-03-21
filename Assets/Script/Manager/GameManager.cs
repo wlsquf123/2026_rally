@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +16,14 @@ public class GameManager : MonoBehaviour
     public int targetKillCount = 3; // 기본값
 
     public bool Hit = false;
+
+    public bool HomingModule; // 강제 유도
+    public bool TimeStopper; // 시간 정지
+    public bool Reflector; // 공격 반사
+    public bool BlackHole; // 블랙홀
+    public bool SlowField; // 감속장
+
+    public GameObject BlackHolePrefeb;
 
     private void Awake()
     {
@@ -34,8 +44,57 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        GAMEOVER();
-        CheatKey();
+        GAMEOVER(); // 게임오버
+        CheatKey(); // 치트키
+
+        // 강제 유도
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            MovePlayer player = GameObject.FindObjectOfType<MovePlayer>();
+            player.EnableHomingModule();
+        }
+
+        // 시간 정지
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Missile[] allMissiles = GameObject.FindObjectsOfType<Missile>();
+            foreach (Missile mis in allMissiles)
+            {
+                if (!mis.IsCoroutineRunnin)
+                {
+                    StartCoroutine(mis.StopAndResume(3.0f));
+                }
+            }
+        }
+
+        // 블랙홀
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            Instantiate(BlackHolePrefeb); // 생성
+        }
+
+        // 감속장
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            float slowRange = 50f; // 감지 반경
+            Missile[] allMissiles = GameObject.FindObjectsOfType<Missile>();
+            GameObject playerObj = GameObject.FindWithTag("Player");
+
+            // 플레이어의 위치값
+            UnityEngine.Vector3 playerPos = playerObj.transform.position;
+
+            foreach (Missile mis in allMissiles)
+            {
+                // 플레이어와 각 미사일 사이의 거리를 계산
+                float distance = UnityEngine.Vector3.Distance(playerPos, mis.transform.position);
+
+                if (distance <= slowRange) // 범위 안에 있다면
+                {
+                    if (!mis.IsCoroutineRunnin)
+                        StartCoroutine(mis.SlowAndResume(3.0f));
+                }
+            }
+        }
     }
 
     public void GAMEOVER()
@@ -55,7 +114,7 @@ public class GameManager : MonoBehaviour
     public void KillCountReset(int count) // 스테이지가 시작될 때 호출해서 목표치를 설정할 함수
     {
         targetKillCount = count;
-        KillCount = 0; // 카운트 초기화는 덤!
+        KillCount = 0;
     }
 
     public void CheatKey()

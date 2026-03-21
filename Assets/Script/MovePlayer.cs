@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
+    public GameObject HomingModule;
     public float MoveSpeed = 50f;
     float RotationSpeed = 250f;
     float velocity = 0f;
     float rotVelocity = 0f;
-    float moveTarget;
     float rotTarget;
 
     void Update()
@@ -37,5 +37,19 @@ public class MovePlayer : MonoBehaviour
         rotVelocity = Mathf.Lerp(rotVelocity, rotTarget, 5f * Time.deltaTime);
         transform.Translate(0, 0, velocity * Time.deltaTime);
         transform.Rotate(0, rotVelocity * Time.deltaTime, 0);
+    }
+
+
+    public void EnableHomingModule()
+    {
+        if (HomingModule.activeSelf) // 만약 HomingModule이 체크박스가 켜져있다면,
+        {
+            return; // 돌아가라 안받는다
+        }
+        else
+        {
+            HomingModule.SetActive(true); // 그게 아니면 채크박스를 켜라
+        }
+
     }
 }
