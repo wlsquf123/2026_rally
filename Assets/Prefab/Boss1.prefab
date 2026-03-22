@@ -88,10 +88,9 @@ GameObject:
   - component: {fileID: 2476773032071001487}
   - component: {fileID: 9109180322797001825}
   - component: {fileID: 8021915477888890440}
-  - component: {fileID: 2412173936780274480}
-  - component: {fileID: 4436940386381424650}
-  - component: {fileID: 7842061664060840137}
   - component: {fileID: 7021598856454527062}
+  - component: {fileID: 2412173936780274480}
+  - component: {fileID: 7842061664060840137}
   m_Layer: 0
   m_Name: Boss1
   m_TagString: Boss
@@ -186,7 +185,20 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 824c149f86733d945810eb44da7ac0c4, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 4cdce04e28bea194faf7c5f43554aa4e, type: 3}
+--- !u!114 &7021598856454527062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252800011857021326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422c7132e14c0e246a16deadcfd5f5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boomEff: {fileID: 8320538120544438238, guid: f729247fee82bfc44acd849bd25614f3, type: 3}
 --- !u!114 &2412173936780274480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,27 +223,6 @@ MonoBehaviour:
   hp: 0
   maxHp: 200
   Reward: 100
---- !u!65 &4436940386381424650
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252800011857021326}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 24.82, y: 15.431689, z: 20.078093}
-  m_Center: {x: -0, y: 2.322033, z: -2.0609603}
 --- !u!54 &7842061664060840137
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -259,18 +250,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &7021598856454527062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252800011857021326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422c7132e14c0e246a16deadcfd5f5c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1889986591889657915
 GameObject:
   m_ObjectHideFlags: 0

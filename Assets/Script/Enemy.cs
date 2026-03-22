@@ -50,18 +50,14 @@ public class Enemy : MonoBehaviour
         timer1 += Time.deltaTime;
         timer2 += Time.deltaTime;
         Attack();
-
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-            Damage(9999);
-        }
     }
 
-    void Attack()
+    
+    void Attack() // 적 미사일 생성
     {
-        // 기본 적
         switch (type)
         {
+            // 정찰기
             case EnemyType.Scout:
                 if (timer >= attackTime)
                 {
@@ -70,6 +66,7 @@ public class Enemy : MonoBehaviour
                 }
                 break;
 
+            // 전투기
             case EnemyType.Fighter:
                 if (timer1 >= attackTime)
                 {
@@ -90,6 +87,7 @@ public class Enemy : MonoBehaviour
                 }
                 break;
 
+            // 중장갑함
             case EnemyType.HeavyCruiser:
                 if (timer >= attackTime)
                 {
@@ -98,6 +96,7 @@ public class Enemy : MonoBehaviour
                 }
                 break;
 
+            // 요격기
             case EnemyType.Interceptor:
                 if (timer >= attackTime)
                 {
@@ -106,14 +105,15 @@ public class Enemy : MonoBehaviour
                 }
                 break;
 
+            // 폭격기
             case EnemyType.Bomber:
                 if (timer >= attackTime)
                 {
                     Instantiate(missilePrefab[0], transform.position + transform.forward * 20, transform.rotation);
                     timer = 0f;
-                }        
+                }
                 break;
-
+            // 보스
             case EnemyType.Boss1:
                 if (timer >= attackTime)
                 {
@@ -132,8 +132,6 @@ public class Enemy : MonoBehaviour
                     timer = 0f;
                     timer1 = 0f;
                     timer2 = 0f;
-
-
                 }
                 break;
 

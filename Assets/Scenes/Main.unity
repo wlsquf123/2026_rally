@@ -483,6 +483,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9128593408701563081, guid: 815fa6081d4e0af4594d5c83bddf4dae, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4953863505558146080, guid: 815fa6081d4e0af4594d5c83bddf4dae, type: 3}
     - {fileID: 9102441618263742057, guid: 815fa6081d4e0af4594d5c83bddf4dae, type: 3}
@@ -1380,13 +1384,14 @@ MonoBehaviour:
   money: 0
   KillCount: 0
   targetKillCount: 3
-  Hit: 0
+  oneMoneyAdd: 0
+  oneKille: 0
   HomingModule: 0
   TimeStopper: 0
   Reflector: 0
   BlackHole: 0
   SlowField: 0
-  BlackHolePr: {fileID: 5325295002648738927, guid: 2a0c01c894ea465409ea9b0c06b98bc4, type: 3}
+  BlackHolePrefeb: {fileID: 5325295002648738927, guid: 2a0c01c894ea465409ea9b0c06b98bc4, type: 3}
 --- !u!4 &1136100121
 Transform:
   m_ObjectHideFlags: 0

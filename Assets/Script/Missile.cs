@@ -45,11 +45,10 @@ public class Missile : MonoBehaviour
         if (other.CompareTag("Player") || other.CompareTag("Meteor") || other.CompareTag("Enemy"))
         {
             isHit = true;
-            if (explosionPrefab != null)
-            {
-                GameObject eff = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-                Destroy(eff, 2.0f);
-            }
+
+            // 폭발 이펙트 추가
+            GameObject eff = Instantiate(explosionPrefab, transform.position, transform.rotation);
+            Destroy(eff, 3.0f);
 
             if (other.CompareTag("Player"))
             {
@@ -64,9 +63,7 @@ public class Missile : MonoBehaviour
                 Destroy(gameObject);
             }
             Destroy(gameObject);
-
         }
-
     }
 
     public IEnumerator StopAndResume(float delay)

@@ -188,7 +188,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
+  TargetTransform: {fileID: 0}
+  explosionPrefab: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
   targetTime: 0
+  orspeed: 0
+  IsCoroutineRunnin: 0
 --- !u!65 &6917332506326844554
 BoxCollider:
   m_ObjectHideFlags: 0

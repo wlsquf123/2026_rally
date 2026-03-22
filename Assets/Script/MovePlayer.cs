@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovePlayer : MonoBehaviour
 {
     public GameObject HomingModule;
+    public GameObject Parrying;
     public float MoveSpeed = 50f;
     float RotationSpeed = 250f;
     float velocity = 0f;
@@ -39,7 +40,6 @@ public class MovePlayer : MonoBehaviour
         transform.Rotate(0, rotVelocity * Time.deltaTime, 0);
     }
 
-
     public void EnableHomingModule()
     {
         if (HomingModule.activeSelf) // 만약 HomingModule이 체크박스가 켜져있다면,
@@ -51,5 +51,17 @@ public class MovePlayer : MonoBehaviour
             HomingModule.SetActive(true); // 그게 아니면 채크박스를 켜라
         }
 
+    }
+
+    public void EnableParrying()
+    {
+        if (Parrying.activeSelf)
+        {
+            return;
+        }
+        else
+        {
+            Parrying.SetActive(true);
+        }
     }
 }

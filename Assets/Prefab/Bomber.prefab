@@ -360,7 +360,6 @@ GameObject:
   - component: {fileID: 4870374616445560877}
   - component: {fileID: 4496191880615126892}
   - component: {fileID: 8483925241572998100}
-  - component: {fileID: 2841379796237134936}
   m_Layer: 7
   m_Name: Bomber
   m_TagString: Enemy
@@ -478,27 +477,6 @@ MonoBehaviour:
   hp: 0
   maxHp: 60
   Reward: 30
---- !u!65 &2841379796237134936
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6301165321142256281}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 13.27826, y: 4.197779, z: 20.924612}
-  m_Center: {x: 0, y: 0.35778958, z: -6.5190725}
 --- !u!1 &7355403496445436136
 GameObject:
   m_ObjectHideFlags: 0

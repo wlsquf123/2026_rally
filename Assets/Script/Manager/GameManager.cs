@@ -1,21 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
 
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance; // 게임매니저
 
     public float PlayerMaxHp = 100f; // 플레이어 최대체력
     public float PlayerHp; // 플레이어 체력
     public float money = 0f; // 플레이어 머뉘
 
-    public int KillCount = 0;
-    public int targetKillCount = 3; // 기본값
+    public int KillCount = 0; // 킬 카운트
+    public int targetKillCount = 3; // 타겟 킬 시작 기본값
 
-    public bool Hit = false;
+    public bool oneMoneyAdd = false; // 돈 추가 (일회성)
+    public bool oneKille = false; // 강제 적 사망 (일회성)
 
     public bool HomingModule; // 강제 유도
     public bool TimeStopper; // 시간 정지
@@ -23,7 +21,7 @@ public class GameManager : MonoBehaviour
     public bool BlackHole; // 블랙홀
     public bool SlowField; // 감속장
 
-    public GameObject BlackHolePrefeb;
+    public GameObject BlackHolePrefeb; // 블랙홀 프리팹
 
     private void Awake()
     {
@@ -65,6 +63,13 @@ public class GameManager : MonoBehaviour
                     StartCoroutine(mis.StopAndResume(3.0f));
                 }
             }
+        }
+
+        // 공격 반사
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            var player = GameObject.FindObjectOfType<MovePlayer>();
+            player.EnableParrying();
         }
 
         // 블랙홀
@@ -119,22 +124,34 @@ public class GameManager : MonoBehaviour
 
     public void CheatKey()
     {
+        // 디버그 모드 (온오프)
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            // 디버그모드
+
         }
 
+        // 무적 (온오프)
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            // 무적
+            
         }
 
-        if (Input.GetKeyDown(KeyCode.F4) && !Hit)
+        // 강제 적 사망 (일회성)
+        if (Input.GetKeyDown(KeyCode.F3))
         {
-            // 돈 추가
-            money += 10000;
-            Hit = true;
+            Enemy[] enemy = GameObject.FindObjectsOfType<Enemy>();
+            foreach (Enemy en in enemy)
+            {
+                en.Damage(999f);
+                oneKille = true;
+            }
         }
 
+        // 돈 추가 (일회성)
+        if (Input.GetKeyDown(KeyCode.F4) && !oneMoneyAdd)
+        {
+            money += 10000;
+            oneMoneyAdd = true;
+        }
     }
 }
