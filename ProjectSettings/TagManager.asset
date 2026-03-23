@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Boss1
   - Boss
+  - Item
+  - God
   layers:
   - Default
   - TransparentFX

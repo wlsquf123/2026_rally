@@ -42,7 +42,7 @@ public class Missile : MonoBehaviour
         if (isHit) return;
         Enemy enemy = other.GetComponent<Enemy>();
 
-        if (other.CompareTag("Player") || other.CompareTag("Meteor") || other.CompareTag("Enemy"))
+        if (other.CompareTag("Player") || other.CompareTag("Meteor") || other.CompareTag("Enemy") || other.CompareTag("God"))
         {
             isHit = true;
 

@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; // 게임매니저
@@ -45,40 +44,50 @@ public class GameManager : MonoBehaviour
         GAMEOVER(); // 게임오버
         CheatKey(); // 치트키
 
-        // 강제 유도
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        // 폭탄은 파츠 아님
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            MovePlayer player = GameObject.FindObjectOfType<MovePlayer>();
-            player.EnableHomingModule();
-        }
-
-        // 시간 정지
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            Missile[] allMissiles = GameObject.FindObjectsOfType<Missile>();
-            foreach (Missile mis in allMissiles)
+            Missile[] allMissile = GameObject.FindObjectsOfType<Missile>();
+            foreach (Missile mis in allMissile)
             {
-                if (!mis.IsCoroutineRunnin)
-                {
-                    StartCoroutine(mis.StopAndResume(3.0f));
-                }
+                Destroy(mis.gameObject);
             }
         }
 
-        // 공격 반사
+        // 강제 유도 (파츠임)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+                MovePlayer player = GameObject.FindObjectOfType<MovePlayer>();
+                player.EnableHomingModule();
+        }
+
+        // 시간 정지 (파츠임)
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+                Missile[] allMissiles = GameObject.FindObjectsOfType<Missile>();
+                foreach (Missile mis in allMissiles)
+                {
+                    if (!mis.IsCoroutineRunnin)
+                    {
+                        StartCoroutine(mis.StopAndResume(3.0f));
+                    }
+                }
+        }
+
+        // 공격 반사 (파츠임)
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            var player = GameObject.FindObjectOfType<MovePlayer>();
-            player.EnableParrying();
+                var player = GameObject.FindObjectOfType<MovePlayer>();
+                player.EnableParrying();
         }
 
-        // 블랙홀
+        // 블랙홀 (파츠임)
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            Instantiate(BlackHolePrefeb); // 생성
+                Instantiate(BlackHolePrefeb); // 생성
         }
 
-        // 감속장
+        // 감속장 (파츠임)
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             float slowRange = 50f; // 감지 반경
@@ -133,7 +142,8 @@ public class GameManager : MonoBehaviour
         // 무적 (온오프)
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            
+            MovePlayer player = GameObject.FindObjectOfType<MovePlayer>();
+            player.GodModeToggle();
         }
 
         // 강제 적 사망 (일회성)

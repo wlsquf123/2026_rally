@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneManage : MonoBehaviour
 {
-
     public void MainScene()
     {
         GameManager.Instance.PlayerHp = GameManager.Instance.PlayerMaxHp;
@@ -39,5 +36,10 @@ public class SceneManage : MonoBehaviour
         Time.timeScale = 1f;
         GameManager.Instance.KillCountReset(5);
         SceneManager.LoadScene("Stage3");
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

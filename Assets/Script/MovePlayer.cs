@@ -6,6 +6,11 @@ public class MovePlayer : MonoBehaviour
 {
     public GameObject HomingModule;
     public GameObject Parrying;
+    public GameObject god;
+    public GameObject guard;
+
+    public bool IsCoroutineRunnin = false;
+
     public float MoveSpeed = 50f;
     float RotationSpeed = 250f;
     float velocity = 0f;
@@ -63,5 +68,33 @@ public class MovePlayer : MonoBehaviour
         {
             Parrying.SetActive(true);
         }
+    }
+
+    public IEnumerator GodMode(float delay)
+    {
+        IsCoroutineRunnin = true;
+        god.SetActive(true);
+
+        yield return new WaitForSeconds(delay);
+
+        god.SetActive(false);
+        IsCoroutineRunnin = false;
+    }
+
+    public IEnumerator guardMode(float delay)
+    {
+        IsCoroutineRunnin = true;
+        guard.SetActive(true);
+
+        yield return new WaitForSeconds(delay);
+
+        guard.SetActive(false);
+        IsCoroutineRunnin = false;
+    }
+
+    public void GodModeToggle()
+    {
+        bool nextState = !god.activeSelf;
+        god.SetActive(nextState);
     }
 }
