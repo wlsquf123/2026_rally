@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StoreManager : MonoBehaviour
 {
     public static StoreManager Instance;
 
-    public bool[] hasPart = new bool[5];
-    public int[] PartMoney = {100, 110, 120, 130, 140 };
-    // Start is called before the first frame update
+    public List<SinglePart> Parts;
+
+    public Image LeftQuickSlotImage;
+    public Image RightQuickSlotImage;
 
     private void Awake()
     {
@@ -22,17 +24,57 @@ public class StoreManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void Store(int index)
+
+    public void TryToBuyThisPart(SinglePart targetPart)
     {
-        
-        if (hasPart[index])
+        if (targetPart.Price <= GameManager.Instance.money)
         {
-            return;
+            targetPart.Buy();
+            GameManager.Instance.money -= targetPart.Price;
         }
-        if (GameManager.Instance.money >= PartMoney[index]) // 너 돈이 충분해?
+    }
+
+    public void TryToEquipLeftSlot(SinglePart targetPart)
+    {
+        switch (targetPart.ThisPartState)
         {
-            GameManager.Instance.money -= PartMoney[index];
-            hasPart[index] = true;
+            case PartState.Bought:
+                LeftQuickSlotImage.sprite = targetPart.PartImage.sprite;
+                targetPart.ThisPartState = PartState.EquippedLeft;
+                break;
+
+            case PartState.EquippedLeft:
+                LeftQuickSlotImage.sprite = null;
+                targetPart.ThisPartState = PartState.Bought;
+                break;
+
+            case PartState.EquippedRight:
+                RightQuickSlotImage.sprite = null;
+                LeftQuickSlotImage.sprite = targetPart.PartImage.sprite;
+                targetPart.ThisPartState = PartState.EquippedLeft;
+                break;
+        }
+    }
+
+    public void TryToEquipRightSlot(SinglePart targetPart)
+    {
+        switch (targetPart.ThisPartState)
+        {
+            case PartState.Bought:
+                RightQuickSlotImage.sprite = targetPart.PartImage.sprite;
+                targetPart.ThisPartState = PartState.EquippedRight;
+                break;
+
+            case PartState.EquippedRight:
+                RightQuickSlotImage.sprite = null;
+                targetPart.ThisPartState = PartState.Bought;
+                break;
+
+            case PartState.EquippedLeft:
+                LeftQuickSlotImage.sprite = null; // 왼쪽 비우기
+                RightQuickSlotImage.sprite = targetPart.PartImage.sprite;
+                targetPart.ThisPartState = PartState.EquippedRight;
+                break;
         }
     }
 }
