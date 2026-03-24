@@ -8,9 +8,10 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     public Image PlayerHpImage; // 체력바 이미지
+    public Text PlayerHpText; // 체력바 텍스트
     public Text PlayerMoneyText;
     public Text PlayerMoneyTextStore;
-    public Text QuickSlotText;
+    //public Text QuickSlotText;
 
     public GameObject GameOverObj;
     public GameObject StageClearObj;
@@ -37,6 +38,7 @@ public class UIManager : MonoBehaviour
     public void PlayerHpUI()
     {
         PlayerHpImage.fillAmount = GameManager.Instance.PlayerHp / GameManager.Instance.PlayerMaxHp;
+        PlayerHpText.text = GameManager.Instance.PlayerHp.ToString() +  " / " + GameManager.Instance.PlayerMaxHp.ToString();
     }
     
     public void PlayerMoneyTextUI()

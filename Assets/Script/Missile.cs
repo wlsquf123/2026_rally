@@ -1,9 +1,19 @@
+using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+
+public enum missileType
+{
+    Null,
+    Bomber
+}
 
 public class Missile : MonoBehaviour
 {
     public float speed;
+    float spin = 50f;
+    public missileType type;
 
     public Transform TargetTransform;
     public GameObject explosionPrefab;
@@ -28,6 +38,7 @@ public class Missile : MonoBehaviour
 
     void Update()
     {
+        Move();
         timer += Time.deltaTime;
 
         if (timer <= targetTime)
@@ -66,6 +77,19 @@ public class Missile : MonoBehaviour
         }
     }
 
+    void Move()
+    {
+        switch (type)
+        {
+            case missileType.Bomber:
+                transform.Rotate(0, spin * Time.deltaTime, 0);
+                break;
+        }
+
+        // 2. 공통 이동: 모든 미사일은 바라보는 방향(Forward)으로 전진
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    }
+
     public IEnumerator StopAndResume(float delay)
     {
         IsCoroutineRunnin = true;
@@ -92,11 +116,6 @@ public class Missile : MonoBehaviour
         IsCoroutineRunnin = false;
     }
 
-    /// <summary>
-    /// 함수의 매개변수로 들어온 Transform을 추적하도록(LookAt)하도록 변경
-    /// 여기에 블랙홀 Transform넣으면 되는거 아님?
-    /// </summary>
-    /// <param name="enemyTransform"></param>
     public void Homing(Transform enemyTransform)
     {
         // enemyTransform == HomingModule 콜라이더에 닿은 적

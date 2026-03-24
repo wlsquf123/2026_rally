@@ -42,13 +42,17 @@ public class Meteor : MonoBehaviour
             GameManager.Instance.PlayerHp -= 10;
             Destroy(gameObject);
         }
-        /*if (other.CompareTag("Missile"))
+        if (other.CompareTag("Missile"))
         {
             Destroy(gameObject);
-        }*/
+        }
         if (other.CompareTag("Enemy"))
         {
             enemy.Damage(1f);
+            Destroy(gameObject);
+        }
+        if (other.CompareTag("God"))
+        {
             Destroy(gameObject);
         }
     }

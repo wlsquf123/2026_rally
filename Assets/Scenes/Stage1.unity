@@ -663,9 +663,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerHpImage: {fileID: 781214416}
+  PlayerHpText: {fileID: 305046373}
   PlayerMoneyText: {fileID: 114406216}
   PlayerMoneyTextStore: {fileID: 1215926376}
-  QuickSlotText: {fileID: 0}
   GameOverObj: {fileID: 420897659}
   StageClearObj: {fileID: 461587014}
 --- !u!114 &256044301
@@ -849,8 +849,9 @@ GameObject:
   - component: {fileID: 305046372}
   - component: {fileID: 305046374}
   - component: {fileID: 305046373}
+  - component: {fileID: 305046375}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: HpText (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -917,6 +918,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305046371}
   m_CullTransparentMesh: 1
+--- !u!114 &305046375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305046371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!4 &309184669 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7561484779428704013, guid: 982f88fb194d2b140aa9b10e8c0f76d7, type: 3}
@@ -1440,10 +1456,10 @@ RectTransform:
   - {fileID: 2046889844}
   m_Father: {fileID: 135434307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1401.82, y: -539}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &643861924
 MonoBehaviour:
@@ -1489,9 +1505,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnButtonClick
+      - m_Target: {fileID: 727692440}
+        m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
+        m_MethodName: Store
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1573,10 +1589,10 @@ RectTransform:
   - {fileID: 1224334531}
   m_Father: {fileID: 135434307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 516.18, y: -539}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &694283506
 MonoBehaviour:
@@ -1622,9 +1638,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnButtonClick
+      - m_Target: {fileID: 727692440}
+        m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
+        m_MethodName: Store
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1766,6 +1782,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &727692439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 727692441}
+  - component: {fileID: 727692440}
+  m_Layer: 0
+  m_Name: StoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &727692440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727692439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7d956b25337c94e906d3fe559b966c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasPart: 0000000000
+  PartMoney: 640000006e00000078000000820000008c000000
+--- !u!4 &727692441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727692439}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 74.145874, y: 32.3968, z: 33.80124}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &781214414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,10 +1937,10 @@ RectTransform:
   - {fileID: 303413777}
   m_Father: {fileID: 135434307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 959, y: -539}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &809117807
 MonoBehaviour:
@@ -1924,9 +1986,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnButtonClick
+      - m_Target: {fileID: 727692440}
+        m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
+        m_MethodName: Store
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2438,7 +2500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1185853157
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2816,6 +2878,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1354033284
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4271712727162671600, guid: be509958ac4e5164684ccfca46e6a98c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271712727162671600, guid: be509958ac4e5164684ccfca46e6a98c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271712727162671600, guid: be509958ac4e5164684ccfca46e6a98c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271712727162671600, guid: be509958ac4e5164684ccfca46e6a98c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271712727162671600, guid: be509958ac4e5164684ccfca46e6a98c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271712727162671600, guid: be509958ac4e5164684ccfca46e6a98c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271712727162671600, guid: be509958ac4e5164684ccfca46e6a98c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271712727162671600, guid: be509958ac4e5164684ccfca46e6a98c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271712727162671600, guid: be509958ac4e5164684ccfca46e6a98c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271712727162671600, guid: be509958ac4e5164684ccfca46e6a98c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533459207317204429, guid: be509958ac4e5164684ccfca46e6a98c, type: 3}
+      propertyPath: m_Name
+      value: HpItem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: be509958ac4e5164684ccfca46e6a98c, type: 3}
 --- !u!1 &1464834850
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,10 +3243,10 @@ RectTransform:
   - {fileID: 2117497167}
   m_Father: {fileID: 135434307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1180.41, y: -539}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1620921321
 MonoBehaviour:
@@ -3173,9 +3292,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnButtonClick
+      - m_Target: {fileID: 727692440}
+        m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
+        m_MethodName: Store
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3626,6 +3745,18 @@ PrefabInstance:
       propertyPath: guard
       value: 
       objectReference: {fileID: 407562143}
+    - target: {fileID: 5575910682194096001, guid: 815fa6081d4e0af4594d5c83bddf4dae, type: 3}
+      propertyPath: m_Name
+      value: GodMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575910682194096001, guid: 815fa6081d4e0af4594d5c83bddf4dae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809494275716018354, guid: 815fa6081d4e0af4594d5c83bddf4dae, type: 3}
+      propertyPath: m_Name
+      value: GodMode{}2
+      objectReference: {fileID: 0}
     - target: {fileID: 5809494275716018354, guid: 815fa6081d4e0af4594d5c83bddf4dae, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3846,10 +3977,10 @@ RectTransform:
   - {fileID: 2102104870}
   m_Father: {fileID: 135434307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 737.58997, y: -539}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2005089562
 MonoBehaviour:
@@ -3895,9 +4026,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnButtonClick
+      - m_Target: {fileID: 727692440}
+        m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
+        m_MethodName: Store
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4196,3 +4327,5 @@ SceneRoots:
   - {fileID: 1340145697}
   - {fileID: 473804656}
   - {fileID: 1660190248}
+  - {fileID: 1354033284}
+  - {fileID: 727692441}

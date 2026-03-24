@@ -11,7 +11,6 @@ public class Boss : MonoBehaviour
             GameObject eff = Instantiate(boomEff, transform.position, transform.rotation);
             Destroy(eff, 2f);
             Enemy.Damage(20f);
-
         }
     }
 }
