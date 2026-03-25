@@ -39,7 +39,7 @@ public class Item : MonoBehaviour
                 }
 
                 break;
-            // 일정 시간 방어 아이템
+           /* // 일정 시간 방어 아이템
             case Items.guardItem:
                 if (other.CompareTag("Player"))
                 {
@@ -47,7 +47,7 @@ public class Item : MonoBehaviour
                     player.StartCoroutine(player.guardMode(5f));
                     Destroy(gameObject);
                 }
-                break;
+                break;*/
         }
     }
 }

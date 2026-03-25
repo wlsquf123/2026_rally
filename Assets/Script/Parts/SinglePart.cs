@@ -32,6 +32,8 @@ public class SinglePart : MonoBehaviour
     public Button BuyButton;
     public Button LeftEquipButton;
     public Button RightEquipButton;
+    public Text LeftQuickSlotTxt;
+    public Text RightQuickSlotTxt;
 
     public void Buy()
     {
@@ -44,4 +46,5 @@ public class SinglePart : MonoBehaviour
             RightEquipButton.gameObject.SetActive(true);
         }
     }
+
 }

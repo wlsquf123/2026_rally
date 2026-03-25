@@ -16,7 +16,7 @@ public class BossManager : MonoBehaviour
         }
         if (GameManager.Instance.KillCount > GameManager.Instance.targetKillCount)
         {
-            UIManager.Instance.StageClearUI();
+            GameManager.Instance.UIManager.StageClearUI();
         }
     }
 }
