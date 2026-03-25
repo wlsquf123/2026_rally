@@ -13,8 +13,8 @@ public class UIManager : MonoBehaviour
     public GameObject Store;
     //public Text QuickSlotText;
 
-    public GameObject[] GameOverObj;
-    public GameObject[] StageClearObj;
+    public GameObject GameOverObj;
+    public GameObject GameClearObj;
 
 
     void Update()
@@ -37,12 +37,12 @@ public class UIManager : MonoBehaviour
 
     public void GameOverUI()
     {
-        
+        GameOverObj.SetActive(true);
     }
 
     // 스테이지 클리어 UI 활성화
     public void StageClearUI()
     {
-        
+        GameClearObj.SetActive(true);
     }
 }

@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public int KillCount = 0; // 킬 카운트
     public int targetKillCount = 3; // 타겟 킬 시작 기본값
+    public int Stage = 1; // 기본값
 
     public bool oneMoneyAdd = false; // 돈 추가 (일회성)
     public bool oneKille = false; // 강제 적 사망 (일회성)

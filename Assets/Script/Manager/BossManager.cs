@@ -5,6 +5,7 @@ public class BossManager : MonoBehaviour
     public GameObject BossObj;
 
     public bool bossSpawned = false; // 보스 스폰 첨에 안나옴 
+    private bool isClear = false;
 
     // Update is called once per frame
     void Update()
@@ -14,9 +15,11 @@ public class BossManager : MonoBehaviour
             bossSpawned = true;
             Instantiate(BossObj);
         }
-        if (GameManager.Instance.KillCount > GameManager.Instance.targetKillCount)
+        if (!isClear && GameManager.Instance.KillCount > GameManager.Instance.targetKillCount)
         {
+            isClear = true;
             GameManager.Instance.UIManager.StageClearUI();
+            Time.timeScale = 0f;
         }
     }
 }

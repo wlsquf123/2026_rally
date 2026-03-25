@@ -5,59 +5,58 @@ public class SceneManage : MonoBehaviour
 {
     public GameObject UIManagerObj;
     public GameObject StoreManagerObj;
-
     public GameObject MainObj;
 
-    private void Awake()
+    // 핵심: 모든 이동은 이 함수를 거칩니다.
+    public void LoadStage(int index)
     {
-        
-    }
-    public void MainScene() // 메인 씬~
-    {
-        MainObj.SetActive(true);
-        UIManagerObj.SetActive(false);
-        StoreManagerObj.SetActive(false);
-        GameManager.Instance.UIManager.GameOverObj[0].SetActive(false);
-        GameManager.Instance.PlayerHp = GameManager.Instance.PlayerMaxHp;
+        var gm = GameManager.Instance;
+        gm.Stage = index; // 현재 스테이지 번호 저장
+
         Time.timeScale = 1f;
-        GameManager.Instance.money = 0f;
-        GameManager.Instance.KillCount = 0;
-        SceneManager.LoadScene("Main");
+        gm.PlayerHp = gm.PlayerMaxHp;
+
+        // UI 초기화 (씬 이동 시 꺼줌)
+        if (gm.UIManager != null)
+        {
+            gm.UIManager.GameOverObj.SetActive(false);
+            gm.UIManager.GameClearObj.SetActive(false);
+        }
+
+        if (index == 0) // 메인 메뉴 이동
+        {
+            MainObj?.SetActive(true);
+            UIManagerObj?.SetActive(false);
+            StoreManagerObj?.SetActive(false);
+            gm.money = 0f;
+            gm.KillCount = 0;
+            SceneManager.LoadScene("Main");
+        }
+        else // 스테이지 이동 (Stage1, Stage2, Stage3...)
+        {
+            MainObj?.SetActive(false);
+            UIManagerObj?.SetActive(true);
+            StoreManagerObj?.SetActive(true);
+
+            // 킬 카운트 설정 (1스테이지=3, 2스테이지=4...)
+            gm.KillCountReset(index + 2);
+            SceneManager.LoadScene("Stage" + index);
+        }
     }
 
-    public void Stage1Scene() // 스테이지1 시작~
+    // [게임 오버 시] "다시하기" 버튼에 연결
+    public void RetryStage()
     {
-        MainObj.SetActive(false);
-        UIManagerObj.SetActive(true);
-        StoreManagerObj.SetActive(true);
-        GameManager.Instance.UIManager.GameOverObj[0].SetActive(false);
-        Time.timeScale = 1f;
-        GameManager.Instance.PlayerHp = GameManager.Instance.PlayerMaxHp;
-        GameManager.Instance.KillCountReset(3);
-        SceneManager.LoadScene("Stage1");
+        // GameManager에 저장된 현재 스테이지 번호로 다시 로드
+        LoadStage(GameManager.Instance.Stage);
     }
 
-    public void Stage2Scene() // 스테이지2 시작~
+    // [게임 클리어 시] "다음 스테이지" 버튼에 연결
+    public void NextStage()
     {
-        GameManager.Instance.UIManager.GameOverObj[0].SetActive(false);
-        GameManager.Instance.UIManager.StageClearObj[0].SetActive(false);
-        GameManager.Instance.PlayerHp = GameManager.Instance.PlayerMaxHp;
-        Time.timeScale = 1f;
-        GameManager.Instance.KillCountReset(4);
-        SceneManager.LoadScene("Stage2");
+        // 현재 스테이지 번호 + 1 로 이동
+        LoadStage(GameManager.Instance.Stage + 1);
     }
 
-    public void Stage3Stage()
-    {
-        GameManager.Instance.UIManager.GameOverObj[0].SetActive(false);
-        GameManager.Instance.PlayerHp = GameManager.Instance.PlayerMaxHp;
-        Time.timeScale = 1f;
-        GameManager.Instance.KillCountReset(5);
-        SceneManager.LoadScene("Stage3");
-    }
-
-    public void Exit()
-    {
-        Application.Quit();
-    }
+    public void Exit() => Application.Quit();
 }
