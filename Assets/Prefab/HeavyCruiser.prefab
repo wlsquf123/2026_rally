@@ -108,6 +108,7 @@ MonoBehaviour:
   hp: 0
   maxHp: 80
   Reward: 20
+  Score: 100
 --- !u!64 &-541477760646674367
 MeshCollider:
   m_ObjectHideFlags: 0

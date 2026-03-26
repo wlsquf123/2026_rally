@@ -16,21 +16,19 @@ public class UIManager : MonoBehaviour
     public GameObject GameOverObj;
     public GameObject GameClearObj;
 
+    public Text ScoreText; // 점수 텍스트
+
 
     void Update()
     {
-        PlayerHpUI();
-        PlayerMoneyTextUI();
+        StateManagement();
     }
 
-    public void PlayerHpUI()
+    public void StateManagement()
     {
+        ScoreText.text = "Score: " + GameManager.Instance.CurrentScore.ToString(); // 실시간 점수 갱신
         PlayerHpImage.fillAmount = GameManager.Instance.PlayerHp / GameManager.Instance.PlayerMaxHp;
-        PlayerHpText.text = GameManager.Instance.PlayerHp.ToString() +  " / " + GameManager.Instance.PlayerMaxHp.ToString();
-    }
-    
-    public void PlayerMoneyTextUI()
-    {
+        PlayerHpText.text = GameManager.Instance.PlayerHp.ToString() + " / " + GameManager.Instance.PlayerMaxHp.ToString();
         PlayerMoneyText.text = GameManager.Instance.money.ToString();
         PlayerMoneyTextStore.text = GameManager.Instance.money.ToString();
     }

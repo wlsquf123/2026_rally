@@ -65,6 +65,7 @@ public class Missile : MonoBehaviour
             {
                 isHit = true;
                 GameManager.Instance.PlayerHp -= 5;
+                GameManager.Instance.AddScore(-100); // 미사일 피격 시 100점 감점
                 Destroy(gameObject);
             }
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Meteor : MonoBehaviour
@@ -40,6 +38,7 @@ public class Meteor : MonoBehaviour
         {
             isHit = true;
             GameManager.Instance.PlayerHp -= 10;
+            GameManager.Instance.AddScore(-100); // 미사일 피격 시 100점 감점
             Destroy(gameObject);
         }
         if (other.CompareTag("Missile"))

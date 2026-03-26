@@ -53,7 +53,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 9.9
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7485559971861288675
 MonoBehaviour:
@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd951e7eaa5cc3547acdccff7b068105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parryingObj: {fileID: 362261158077530393, guid: 20fda529c996a334da7fd65b48ea40df, type: 3}
 --- !u!54 &162335630504431993
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -112,7 +113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5120940228601169384
 Transform:
   m_ObjectHideFlags: 0
@@ -201,7 +202,7 @@ GameObject:
   - component: {fileID: 460998893450044692}
   - component: {fileID: 686374533069001980}
   m_Layer: 8
-  m_Name: Sphere
+  m_Name: GodMode
   m_TagString: God
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -305,7 +306,7 @@ GameObject:
   - component: {fileID: 7741912943787869041}
   - component: {fileID: 4332371336373566258}
   m_Layer: 8
-  m_Name: GodMode
+  m_Name: GodMode{}2
   m_TagString: God
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

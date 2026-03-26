@@ -12,9 +12,21 @@ public class Item : MonoBehaviour
 
     public Items type; // 아이템 타입
 
+    float Speed = 8f;
+    Vector3 dir;
+
     private void Start()
     {
-        Destroy(gameObject, 5f);
+
+        float randomX = Random.Range(-0.5f, 0.5f);
+        float randomZ = Random.Range(-1f, -0.2f);
+        dir = new Vector3(randomX, 0, randomZ).normalized;
+        Destroy(gameObject, 15f);
+    }
+
+    private void Update()
+    {
+        transform.Translate(dir * Speed * Time.deltaTime, Space.World);
     }
 
     private void OnTriggerEnter(Collider other)

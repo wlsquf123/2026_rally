@@ -223,6 +223,7 @@ MonoBehaviour:
   hp: 0
   maxHp: 200
   Reward: 100
+  Score: 1000
 --- !u!54 &7842061664060840137
 Rigidbody:
   m_ObjectHideFlags: 0

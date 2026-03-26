@@ -26,7 +26,8 @@ public class Enemy : MonoBehaviour
     public float attackTime;
     public float hp;
     public float maxHp;
-    public float Reward = 0f;
+    public float Reward;
+    public int Score;
 
     float timer = 0f;
     float timer1 = 0f;
@@ -145,9 +146,22 @@ public class Enemy : MonoBehaviour
 
         if (hp <= 0)
         {
+            if (type == EnemyType.Boss1 || type ==  EnemyType.Boss2 || type == EnemyType.Boss3)
+            {
+                GameManager.Instance.UIManager.GameClearObj.SetActive(true);
+                if (GameManager.Instance.Stage == 3)
+                {
+                    GameManager.Instance.RankingManager.OpenRankingPanel();
+                }
+                GameManager.Instance.AddScore(Score);
+                GameManager.Instance.PlayerMoney(Reward);
+                Destroy(gameObject);
+                Time.timeScale = 0f;
+
+            }
             Destroy(gameObject);
             GameManager.Instance.PlayerMoney(Reward);
-            GameManager.Instance.KillCount++;
+            GameManager.Instance.AddScore(Score); // Àû Ã³Ä¡ ½Ã 1000Á¡ È¹µæ
         }
     }
 }

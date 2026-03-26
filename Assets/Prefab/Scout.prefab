@@ -397,6 +397,7 @@ MonoBehaviour:
   hp: 0
   maxHp: 20
   Reward: 10
+  Score: 100
 --- !u!1 &8105809858019764369
 GameObject:
   m_ObjectHideFlags: 0

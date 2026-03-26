@@ -1,3 +1,5 @@
+using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -6,6 +8,7 @@ public class GameManager : MonoBehaviour
     public UIManager UIManager;
     public StoreManager StoreManager;
     public SceneManage SceneManage;
+    public RankingManager RankingManager;
 
     public float PlayerMaxHp = 100f; // 플레이어 최대체력
     public float PlayerHp; // 플레이어 체력
@@ -26,8 +29,16 @@ public class GameManager : MonoBehaviour
 
     public GameObject BlackHolePrefeb; // 블랙홀 프리팹
 
+    public int CurrentScore = 0; // 현재 점수
+    public string PlayerName = "Player1"; // 랭킹 입력용
+
+    private string savePath;
+    private string rankPath;
+
     private void Awake()
     {
+        savePath = Path.Combine(Application.persistentDataPath, "save.json");
+        rankPath = Path.Combine(Application.persistentDataPath, "rank.json");
         if (Instance == null)
         {
             Instance = this;
@@ -167,5 +178,52 @@ public class GameManager : MonoBehaviour
             money += 10000;
             oneMoneyAdd = true;
         }
+    }
+
+
+
+    public void AddScore(int amount)
+    {
+        CurrentScore = Mathf.Max(0, CurrentScore + amount);
+    }
+
+    // [요구사항 15] 세이브 기능
+    public void SaveGame()
+    {
+        SaveData data = new SaveData();
+        data.money = money;
+        data.stage = Stage;
+        data.playerHp = PlayerHp;
+
+        foreach (var part in StoreManager.Parts)
+        {
+            data.partStates.Add(new PartSaveInfo { type = part.ThisPartType, state = part.ThisPartState });
+        }
+        // 퀵슬롯 정보는 StoreManager 등에서 가져와 저장 가능
+
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(savePath, json);
+    }
+
+    // [요구사항 12] 랭킹 업데이트 (내림차순 정렬)
+    public void UpdateRanking(string name, int score)
+    {
+        RankList list = LoadRanking();
+        list.ranks.Add(new RankData { name = name, score = score });
+        // 점수 높은 순으로 정렬 후 상위 5명만 남김
+        list.ranks = list.ranks.OrderByDescending(x => x.score).Take(5).ToList();
+
+        string json = JsonUtility.ToJson(list);
+        File.WriteAllText(rankPath, json);
+    }
+
+    public RankList LoadRanking()
+    {
+        if (File.Exists(rankPath))
+        {
+            string json = File.ReadAllText(rankPath);
+            return JsonUtility.FromJson<RankList>(json);
+        }
+        return new RankList();
     }
 }
