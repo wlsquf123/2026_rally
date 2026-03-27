@@ -387,8 +387,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Items:
-  - {fileID: 5533459207317204429, guid: be509958ac4e5164684ccfca46e6a98c, type: 3}
   - {fileID: 6521265059903315992, guid: 02697b1fb0d7ba54eb56db6dd07cacac, type: 3}
+  - {fileID: 5533459207317204429, guid: be509958ac4e5164684ccfca46e6a98c, type: 3}
 --- !u!4 &831338295
 Transform:
   m_ObjectHideFlags: 0

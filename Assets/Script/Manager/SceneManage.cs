@@ -25,6 +25,7 @@ public class SceneManage : MonoBehaviour
 
             GameManager.Instance.money = 0f;
             GameManager.Instance.KillCount = 0;
+            GameManager.Instance.CurrentScore = 0;
             SceneManager.LoadScene("Main");
         }
         else // 스테이지 이동 (Stage1, Stage2, Stage3.)

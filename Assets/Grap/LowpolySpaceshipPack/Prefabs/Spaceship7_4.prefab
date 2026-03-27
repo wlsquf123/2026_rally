@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 6242001233188867332}
   - component: {fileID: 9128593408701563081}
   - component: {fileID: 4239469795756167454}
-  - component: {fileID: 2325765944385988978}
+  - component: {fileID: 8246748145529690568}
   m_Layer: 8
   m_Name: Spaceship7_4
   m_TagString: Player
@@ -485,7 +485,7 @@ MonoBehaviour:
   god: {fileID: 5575910682194096001}
   IsCoroutineRunnin: 0
   MoveSpeed: 30
---- !u!54 &2325765944385988978
+--- !u!54 &8246748145529690568
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -507,8 +507,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 0
   m_CollisionDetection: 0
