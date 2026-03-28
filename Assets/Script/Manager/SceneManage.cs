@@ -24,7 +24,6 @@ public class SceneManage : MonoBehaviour
             StoreManagerObj.SetActive(false);
 
             GameManager.Instance.money = 0f;
-            GameManager.Instance.KillCount = 0;
             GameManager.Instance.CurrentScore = 0;
             SceneManager.LoadScene("Main");
         }
@@ -33,9 +32,6 @@ public class SceneManage : MonoBehaviour
             MainObj.SetActive(false);
             UIManagerObj.SetActive(true);
             StoreManagerObj.SetActive(true);
-
-            // 킬 카운트 설정 (1스테이지=3, 2스테이지=4.)
-            GameManager.Instance.KillCountReset(index + 2);
             SceneManager.LoadScene("Stage" + index);
         }
     }

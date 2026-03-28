@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
     public float PlayerHp; // 플레이어 체력
     public float money = 0f; // 플레이어 머뉘
 
-    public int KillCount = 0; // 킬 카운트
-    public int targetKillCount = 3; // 타겟 킬 시작 기본값
     public int Stage = 1; // 기본값
 
     public bool oneMoneyAdd = false; // 돈 추가 (일회성)
@@ -138,12 +136,6 @@ public class GameManager : MonoBehaviour
     public void PlayerMoney(float m)
     {
         money += m;
-    }
-
-    public void KillCountReset(int count) // 스테이지가 시작될 때 호출해서 목표치를 설정할 함수
-    {
-        targetKillCount = count;
-        KillCount = 0;
     }
 
     public void CheatKey()
