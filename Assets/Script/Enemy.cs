@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
                 if (timer >= attackTime)
                 {
                     Instantiate(missilePrefab[0], transform.position + transform.forward * 10, transform.rotation);
-                    timer = 0f;
+                    timer = 0;
                 }
                 break;
 
@@ -161,7 +161,7 @@ public class Enemy : MonoBehaviour
             }
             Destroy(gameObject);
             GameManager.Instance.PlayerMoney(Reward);
-            GameManager.Instance.AddScore(Score); // Àû Ã³Ä¡ ½Ã 1000Á¡ È¹µæ
+            GameManager.Instance.AddScore(Score);
         }
     }
 }

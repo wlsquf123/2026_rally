@@ -45,7 +45,6 @@ public class Missile : MonoBehaviour
         {
             transform.LookAt(TargetTransform);
         }
-        transform.Translate(0, 0, speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -88,7 +87,7 @@ public class Missile : MonoBehaviour
         }
 
         // 2. 공통 이동: 모든 미사일은 바라보는 방향(Forward)으로 전진
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(0, 0, speed * Time.deltaTime);
     }
 
     public IEnumerator StopAndResume(float delay)
