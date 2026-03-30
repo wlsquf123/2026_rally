@@ -1,19 +1,19 @@
 using System;
 using System.Collections.Generic;
 
-// 랭킹 데이터 단위
-[Serializable]
+// Class는 뭘까요?
+// 모든 클래스는 틀이고, 이걸 메모리에 실제 저장해야 데이터 혹은 함수로 작동을 한다. (Static같은 특수한 경우가 있기는ㄴ 한데...)
+// 유환진 RankData
+// 동준 RankData
+// 제현 RankData
+// 단순 데이터 저장 -> Struct
+// 클래스는 내부 함수를 넣고, 상속이 가능
+// Struct는 그냥 변수만 들고 있음
+
 public class RankData
 {
-    public string name;
-    public int score;
-}
-
-// 랭킹 리스트 (JSON 변환용)
-[Serializable]
-public class RankList
-{
-    public List<RankData> ranks = new List<RankData>();
+    public string Savedname = "AAA";
+    public int Savedscore = 0;
 }
 
 // [과제 요구사항 15] 세이브 데이터 구조

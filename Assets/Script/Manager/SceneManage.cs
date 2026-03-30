@@ -16,6 +16,7 @@ public class SceneManage : MonoBehaviour
         Time.timeScale = 1f;
         GameManager.Instance.UIManager.GameOverObj.SetActive(false);
         GameManager.Instance.UIManager.GameClearObj.SetActive(false);
+        GameManager.Instance.UIManager.EscObj.SetActive(false);
 
         if (index == 0) // 메인씬 이동
         {
@@ -40,6 +41,7 @@ public class SceneManage : MonoBehaviour
     public void RetryStage()
     {
         LoadStage(GameManager.Instance.Stage);
+        GameManager.Instance.CurrentScore = GameManager.Instance.SaveScore;
     }
 
     // [게임 클리어 시] "다음 스테이지" 버튼에 연결
@@ -47,10 +49,44 @@ public class SceneManage : MonoBehaviour
     {
         // 현재 스테이지 번호 + 1 로 이동
         LoadStage(GameManager.Instance.Stage + 1);
+        GameManager.Instance.SaveScore = GameManager.Instance.CurrentScore;
     }
 
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public void EscExit()
+    {
+        GameManager.Instance.UIManager.EscObj.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void Main()
+    {
+        GameManager.Instance.UIManager.GameOverObj.SetActive(false);
+        GameManager.Instance.UIManager.GameClearObj.SetActive(false);
+        GameManager.Instance.UIManager.EscObj.SetActive(false);
+        UIManagerObj.SetActive(false);
+        StoreManagerObj.SetActive(false);
+        MainObj.SetActive(true);
+        GameManager.Instance.PlayerHp = GameManager.Instance.PlayerMaxHp;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Main");
+    }
+
+    public void Stage1()
+    {
+        GameManager.Instance.UIManager.GameOverObj.SetActive(false);
+        GameManager.Instance.UIManager.GameClearObj.SetActive(false);
+        GameManager.Instance.UIManager.EscObj.SetActive(false);
+        UIManagerObj.SetActive(true);
+        StoreManagerObj.SetActive(true);
+        MainObj.SetActive(false);
+        GameManager.Instance.PlayerHp = GameManager.Instance.PlayerMaxHp;
+        GameManager.Instance.money = 0f;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Stage1");
     }
 }

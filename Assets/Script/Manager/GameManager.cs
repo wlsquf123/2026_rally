@@ -28,8 +28,9 @@ public class GameManager : MonoBehaviour
     public GameObject BlackHolePrefeb; // 블랙홀 프리팹
 
     public int CurrentScore = 0; // 현재 점수
-    public string PlayerName = "Player1"; // 랭킹 입력용
+    public int SaveScore;
 
+    public string PlayerName = "Player1"; // 랭킹 입력용
     private string savePath;
     private string rankPath;
 
@@ -56,6 +57,20 @@ public class GameManager : MonoBehaviour
     {
         GAMEOVER(); // 게임오버
         CheatKey(); // 치트키
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            bool toggle = !UIManager.EscObj.activeSelf;
+            UIManager.EscObj.SetActive(toggle);
+            if (toggle)
+            {
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+            }
+        }
 
         // 폭탄은 파츠 아님
         if (Input.GetKeyDown(KeyCode.P))
@@ -143,7 +158,12 @@ public class GameManager : MonoBehaviour
         // 디버그 모드 (온오프)
         if (Input.GetKeyDown(KeyCode.F1))
         {
-
+            DebugMode[] debug = GameObject.FindObjectsOfType<DebugMode>();
+            foreach (var de in debug)
+            {
+                Debug.Log("나 눌렀음");
+                de.DebugObj();
+            }
         }
 
         // 무적 (온오프)
@@ -197,25 +217,5 @@ public class GameManager : MonoBehaviour
         File.WriteAllText(savePath, json);
     }
 
-    // [요구사항 12] 랭킹 업데이트 (내림차순 정렬)
-    public void UpdateRanking(string name, int score)
-    {
-        RankList list = LoadRanking();
-        list.ranks.Add(new RankData { name = name, score = score });
-        // 점수 높은 순으로 정렬 후 상위 5명만 남김
-        list.ranks = list.ranks.OrderByDescending(x => x.score).Take(5).ToList();
-
-        string json = JsonUtility.ToJson(list);
-        File.WriteAllText(rankPath, json);
-    }
-
-    public RankList LoadRanking()
-    {
-        if (File.Exists(rankPath))
-        {
-            string json = File.ReadAllText(rankPath);
-            return JsonUtility.FromJson<RankList>(json);
-        }
-        return new RankList();
-    }
+   
 }

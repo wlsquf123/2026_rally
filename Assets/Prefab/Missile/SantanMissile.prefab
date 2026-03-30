@@ -296,6 +296,10 @@ PrefabInstance:
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4017165041668294916, guid: 4686596e88cbcd64b9c27b10c42588c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7090288227873786759, guid: 4686596e88cbcd64b9c27b10c42588c5, type: 3}
       propertyPath: m_Name
       value: Fighter (1)

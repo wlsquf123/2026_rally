@@ -7,7 +7,7 @@ public class BossManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.childCount == 0 && BossObj != null)
+        if (transform.childCount == 0 && BossObj)
         {
             BossObj.SetActive(true);
             Destroy(gameObject);

@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public Text PlayerMoneyTextStore;
 
     public GameObject Store;
+    public GameObject EscObj;
     //public Text QuickSlotText;
 
     public GameObject GameOverObj;
