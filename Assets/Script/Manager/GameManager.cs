@@ -158,8 +158,8 @@ public class GameManager : MonoBehaviour
         // 디버그 모드 (온오프)
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            DebugMode[] debug = GameObject.FindObjectsOfType<DebugMode>();
-            foreach (var de in debug)
+            DebugMode[] allDebugScripts = Object.FindObjectsByType<DebugMode>(FindObjectsSortMode.None);
+            foreach (DebugMode de in allDebugScripts)
             {
                 Debug.Log("나 눌렀음");
                 de.DebugObj();
@@ -193,29 +193,8 @@ public class GameManager : MonoBehaviour
     }
 
 
-
     public void AddScore(int amount)
     {
         CurrentScore = Mathf.Max(0, CurrentScore + amount);
     }
-
-    // [요구사항 15] 세이브 기능
-    public void SaveGame()
-    {
-        SaveData data = new SaveData();
-        data.money = money;
-        data.stage = Stage;
-        data.playerHp = PlayerHp;
-
-        foreach (var part in StoreManager.Parts)
-        {
-            data.partStates.Add(new PartSaveInfo { type = part.ThisPartType, state = part.ThisPartState });
-        }
-        // 퀵슬롯 정보는 StoreManager 등에서 가져와 저장 가능
-
-        string json = JsonUtility.ToJson(data);
-        File.WriteAllText(savePath, json);
-    }
-
-   
 }

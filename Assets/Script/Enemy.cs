@@ -153,9 +153,6 @@ public class Enemy : MonoBehaviour
                 {
                     GameManager.Instance.RankingManager.OpenRankingPanel();
                 }
-                GameManager.Instance.AddScore(Score);
-                GameManager.Instance.PlayerMoney(Reward);
-                Destroy(gameObject);
                 Time.timeScale = 0f;
 
             }

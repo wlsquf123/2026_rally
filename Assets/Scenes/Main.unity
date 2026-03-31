@@ -915,7 +915,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1208001899}
         m_TargetAssemblyTypeName: SceneManage, Assembly-CSharp
-        m_MethodName: Main
+        m_MethodName: SaveMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -18,16 +18,8 @@ public class RankingManager : MonoBehaviour
 
     void Awake()
     {
-        // 2. 기존 데이터 로드
-        LoadRanking();
         for (int i = 0; i < RankDataArr.Length; i++)
             RankDataArr[i] = new();
-    }
-
-    // 1. 랭킹 데이터 로드
-    public void LoadRanking()
-    {
-       
     }
 
     // 2. 랭킹 UI 열기 (게임 종료 시 호출)

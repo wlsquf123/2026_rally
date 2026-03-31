@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -63,7 +64,7 @@ public class SceneManage : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void Main()
+    public void SaveMain()
     {
         GameManager.Instance.UIManager.GameOverObj.SetActive(false);
         GameManager.Instance.UIManager.GameClearObj.SetActive(false);
@@ -71,7 +72,6 @@ public class SceneManage : MonoBehaviour
         UIManagerObj.SetActive(false);
         StoreManagerObj.SetActive(false);
         MainObj.SetActive(true);
-        GameManager.Instance.PlayerHp = GameManager.Instance.PlayerMaxHp;
         Time.timeScale = 1f;
         SceneManager.LoadScene("Main");
     }
@@ -85,6 +85,7 @@ public class SceneManage : MonoBehaviour
         StoreManagerObj.SetActive(true);
         MainObj.SetActive(false);
         GameManager.Instance.PlayerHp = GameManager.Instance.PlayerMaxHp;
+        GameManager.Instance.Stage = 1;
         GameManager.Instance.money = 0f;
         Time.timeScale = 1f;
         SceneManager.LoadScene("Stage1");
