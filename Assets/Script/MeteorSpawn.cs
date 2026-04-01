@@ -3,29 +3,23 @@ using UnityEngine;
 public class MeteorSpawn : MonoBehaviour
 {
     public GameObject[] Meteors;
-
     float timer = 0f;
-    float spawnTime = 2f;
+    public float spawnTime = 2f;
 
     void Update()
     {
-        timer =  timer+Time.deltaTime;
+        timer += Time.deltaTime;
 
         if (timer >= spawnTime)
         {
-            SpawnMeteor();
+            float x = Random.Range(-120f, 120f);
+            float z = 70f;
+            Vector3 pos = new Vector3(x, 0, z);
+
+            int randomIndex = Random.Range(0, Meteors.Length);
+
+            Instantiate(Meteors[randomIndex], pos, Quaternion.identity);
             timer = 0f;
         }
-    }
-
-    void SpawnMeteor()
-    {
-        float x = Random.Range(-120f, 120f);
-        float z = 70f;
-        Vector3 pos = new Vector3(x, 0, z);
-
-        int randomIndex = Random.Range(0, Meteors.Length);
-
-        Instantiate(Meteors[randomIndex], pos, Quaternion.identity);
     }
 }
