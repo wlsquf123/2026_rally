@@ -5,13 +5,10 @@ using UnityEngine.UI;
 
 public class StoreManager : MonoBehaviour
 {
-
-    public List<SinglePart> Parts;
     
     public Image LeftQuickSlotImage;
     public Image RightQuickSlotImage;
 
-    
     public void TryToBuyThisPart(SinglePart targetPart)
     {
         if (targetPart.Price <= GameManager.Instance.money)

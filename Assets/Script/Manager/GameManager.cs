@@ -161,7 +161,6 @@ public class GameManager : MonoBehaviour
             DebugMode[] allDebugScripts = Object.FindObjectsByType<DebugMode>(FindObjectsSortMode.None);
             foreach (DebugMode de in allDebugScripts)
             {
-                Debug.Log("³ª ´­·¶À½");
                 de.DebugObj();
             }
         }
@@ -191,7 +190,6 @@ public class GameManager : MonoBehaviour
             oneMoneyAdd = true;
         }
     }
-
 
     public void AddScore(int amount)
     {
